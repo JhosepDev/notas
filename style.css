@@ -1,0 +1,116 @@
+
+body {
+   padding-top: 3em;
+   background-color: #f1f1f1 !important;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   padding: 3em 2em;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: white;
+   border-radius: 15px;
+}
+
+.escribir {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.escribir form {
+   width: 500px;
+   display: flex;
+   flex-direction: column;
+}
+
+.escribir form textarea {
+   min-height: 95px;
+   max-height: 100px;
+   height: 100px;
+   border-radius: 4px;
+   margin-bottom: 1em;
+   padding: .5em 1em;
+}
+
+.notas {
+   margin-top: 2.5em;
+   width: 500px;
+}
+
+.container-notas {
+   width: 500px;
+}
+
+#lista-notas li {
+   padding: .8em 2em;
+   margin-bottom: .5em;
+   border-radius: 4px;
+   background-color: #f8f8f8;
+   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+}
+
+.borrar-nota {
+   width: 25px;
+   height: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   position: absolute;
+   right: 10px;
+   transition: .3s;
+}
+
+.borrar-nota:before {
+   content: '';
+   width: 15px;
+   height: 5px;
+   background-color: #c57b7b;
+   border-radius: 10px;
+   position: absolute;
+   transition: .3s;
+   /* transform: rotate(45deg); */
+}
+
+.borrar-nota::after {
+   content: '';
+   width: 15px;
+   height: 5px;
+   background-color: #c57b7b;
+   border-radius: 10px;
+   position: absolute;
+   transition: .3s;
+   /* transform: rotate(-45deg); */
+}
+
+.borrar-nota:hover:before {
+   transform: rotate(-45deg);
+}
+
+.borrar-nota:hover:after {
+   transform: rotate(45deg);
+}
+
+.mensaje-delete {
+   width: 200px;
+   padding: .5em 0;
+   text-align: center;
+   margin-bottom: .5em;
+   border-radius: 4px;
+   color: white;
+   background-color: #f14040;
+   position: fixed;
+   top: 50px;
+   right: 460px;
+   opacity: 0;
+   transition: all .4s;
+   transform: translateY(50px);
+}
