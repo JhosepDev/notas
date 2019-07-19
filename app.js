@@ -15,6 +15,9 @@ function eventListener() {
 
    // Borrar nota
    listaNotas.addEventListener('click', borrarNota);
+
+   // Contenido cargado
+   document.addEventListener('DOMContentLoaded', localStorageListo);
 }
 
 
@@ -66,7 +69,29 @@ function borrarNota(e) {
 }
 
 
-// Agraga la NOTA a Local Storage ------------------------------------------- >
+// Mostrar datos de Local Storage en la lista ------------------------------------------- >
+function localStorageListo() {
+   let notas;
+
+   notas = obtenerNotasLocalStorage();
+
+   notas.forEach(function (nota) {
+      const botonBorrar = document.createElement('a');
+      botonBorrar.classList = 'borrar-nota';
+      botonBorrar.innerText = '';
+
+
+      // Crear elemento y anadirle el contenido a la lista
+      const li = document.createElement('li');
+      li.innerText = nota;
+      // Anade el boton de borrar y la tarea a la lista
+      li.appendChild(botonBorrar);
+      listaNotas.appendChild(li);
+   });
+}
+
+
+// Agraga NOTA a Local Storage ------------------------------------------- >
 function agregarNotaLocalStorage(nota) {
    let notas;
    notas = obtenerNotasLocalStorage();
@@ -79,7 +104,7 @@ function agregarNotaLocalStorage(nota) {
 }
 
 
-//Local Storage ------------------------------------------- >
+//Comprobar que haya elementos en Local Storage (retorna un arreglo) ---------------------------- >
 function obtenerNotasLocalStorage() {
    let notas;
    // Revisamos los valores de Local Storage
@@ -91,3 +116,5 @@ function obtenerNotasLocalStorage() {
 
    return notas;
 }
+
+
