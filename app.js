@@ -55,8 +55,11 @@ function borrarNota(e) {
    e.preventDefault();
    if (e.target.className === 'borrar-nota') {
       e.target.parentElement.remove();
+      borrarNotaLocalStorage(e.target.parentElement.innerText);
    }
 
+
+   // Mensaje de: Nota eliminada.
    mensajeDelete.classList = 'mensaje-delete';
    mensajeDelete.innerText = 'Eliminaste una nota';
    mensajeDelete.style.opacity = '1';
@@ -117,4 +120,27 @@ function obtenerNotasLocalStorage() {
    return notas;
 }
 
+
+// Eliminar NOTA de Local Storage --------------------------------------------- >
+function borrarNotaLocalStorage(nota) {
+
+   let notas;
+   let notaBorrar;
+
+   notas = obtenerNotasLocalStorage();
+   notaBorrar = nota;
+
+   notas.forEach(function (nota, index) {
+
+      if (notaBorrar === nota) {
+         notas.splice(index, 1);
+         console.log('EXITO');
+      } else {
+         console.log('ERROR');
+      }
+   });
+
+   localStorage.setItem('notas', JSON.stringify(notas));
+
+}
 
